@@ -5,7 +5,6 @@ package smtp
 import (
 	"encoding/base64"
 	"errors"
-	"log"
 	"regexp"
 	"strings"
 
@@ -116,14 +115,14 @@ func (proto *Protocol) resetState() {
 }
 
 func (proto *Protocol) logf(message string, args ...interface{}) {
-	message = strings.Join([]string{"[PROTO: %s]", message}, " ")
-	args = append([]interface{}{StateMap[proto.State]}, args...)
+	// message = strings.Join([]string{"[PROTO: %s]", message}, " ")
+	// args = append([]interface{}{StateMap[proto.State]}, args...)
 
-	if proto.LogHandler != nil {
-		proto.LogHandler(message, args...)
-	} else {
-		log.Printf(message, args...)
-	}
+	// if proto.LogHandler != nil {
+	// 	proto.LogHandler(message, args...)
+	// } else {
+	// 	log.Printf(message, args...)
+	// }
 }
 
 // Start begins an SMTP conversation with a 220 reply, placing the state
